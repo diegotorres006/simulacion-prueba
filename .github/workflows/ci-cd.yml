@@ -1,0 +1,17 @@
+name: ci-cd
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: npm ci
+    - run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Desplegando aplicacion..."
